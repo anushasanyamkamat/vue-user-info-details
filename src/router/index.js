@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HelloWorld from '@/components/HelloWorld.vue'
 import UserInfo from '@/components/UserInfo.vue'
 
+
 Vue.use(VueRouter)
 
   const routes = [
