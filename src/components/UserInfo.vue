@@ -1,24 +1,23 @@
 <template>
     <div>
         <router-link to="/">Home</router-link>
-        <hr>
-        <div align="center">
-            <table border="5px">
-                <thead class="bold">
-                    <tr>
-                        <th>Name</th><br>
-                        <th>Age</th><br>
-                        <th>Address</th>
-                    </tr>
-                </thead>
-                <tbody class="italics">
-                    <tr>
-                        <td>{{uName}}</td> <br>
-                        <td>{{uAge}}</td><br>
-                        <td>{{uAddress}}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div>
+            <v-card
+                class="mx-auto"
+                max-width="344"
+                outlined
+            >
+                <v-list-item three-line>
+                <v-list-item-content>
+                    <div class="overline mb-4">User Details</div>
+                    <v-list-item-title class="headline mb-1">{{uName}}</v-list-item-title>
+                    <v-list-item-subtitle>{{uAddress}}</v-list-item-subtitle>
+                </v-list-item-content>
+
+                </v-list-item>
+
+            
+            </v-card>
         </div>
         
             
