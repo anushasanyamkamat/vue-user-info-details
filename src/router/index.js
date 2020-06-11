@@ -16,7 +16,7 @@ Vue.use(VueRouter)
     path: '/user',
     name: 'userInfo',
     component: UserInfo
-  }
+  },
 ]
 
 const router = new VueRouter({
