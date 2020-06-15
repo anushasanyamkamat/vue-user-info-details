@@ -2,6 +2,8 @@
     <div>
         <router-link to="/">Home</router-link>
         <div>
+            <input type="number" placeholder="Enter Age" v-model.number="age">
+
             <template>
                 <v-simple-table height="300px">
                     <template v-slot:default>
@@ -9,12 +11,14 @@
                         <tr>
                         <th class="text-left">Name</th>
                         <th class="text-left">Address</th>
+                        <th class="text-left">Age</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="user in users" :key="user.user_name">
                         <td>{{ user.user_name }}</td>
                         <td>{{ user.user_address }}</td>
+                        <td>{{ user.user_age }}</td>
                         </tr>
                     </tbody>
                     </template>
@@ -33,18 +37,40 @@ export default {
     data: function(){
         return{
             users:[],
+            age:0,
         }
     },
-    mounted() {
-        //var vm = this;
-        // axios.get('http://localhost:3000/user') 
+    watch:{
+        age: function(num){
+           // let vm = this;
+              this.test(num);
+                
+ 
+        }
+    },
 
-        axios.get('http://localhost:3000/users')
+    methods:{
+        test: function(abc){
+            axios.get('http://localhost:3000/users')
             .then((response)=>{
-                console.log(response.data);
-                this.users=response.data;
+               //let value =30;
+               this.users=response.data;
+               this.users = this.users.filter(user=> user.user_age <= abc);
+               
+              // vm.users = vm.users.filter(user=> user.user_age <= value);
+   
+            });
+
             
-        });
+        }
+        
+    },
+    
+    mounted() {
+       // var vm = this;
+        // axios.get('http://localhost:3000/user') 
+        this.test(this.age);
+        
     }
     
 }
